@@ -33,14 +33,16 @@ for(let i=0; i<max; i++){
 }
 
 function pyramid(num) {
-  for(let i=0; i<num; i++) {
-    let message = "x"
-    console.log(message);
-    message += "x"
+  for (let i = 0; i < num; i++){
+    let message = '';
+    for (let j = 0; j <= i; j++){
+      message = message + "x"
+      }
+    console.log(message)
   }
 }
 
-
+pyramid(5);
 
 
 
