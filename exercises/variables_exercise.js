@@ -96,15 +96,36 @@ let result16 = z-y*x
 // console.log(`My result is ${result16} and the type of my result variable is ${typeof(result16)}`)
 
 // 17. Do the same thing as question 16, but this time use the function to interact with a user to ask them to input numbers x, y and z.
-
+let userInput17 = () => {
+  let userInput17One = prompt("Type z: ")
+  let userInput17Two = prompt("Type y: ")
+  let userInput17Three = prompt("Type z: ")
+  console.log(`z+y+z = ${parseInt(userInput17One) + parseInt(userInput17Two) + parseInt(userInput17Three)}`)
+}
 
 // 18. Try to do the following sentence/conversation by using the function to interact with a user :
 //     1. What is your name? the user will have to type his/her name
 //     2. What is your age? the user will have to type his/her age
 //     3. Where are you from? the user will have to type his/her home country
 //     4. Display the result as : “Hello! Your name is <name>, you’re <age> years old and you come from <country>”.
+let interact18 = () => {
+  let name = prompt("What is your name?: ")
+  let age = parseInt(prompt("What is your age? "))
+  let country = prompt("Where are you from? ")
+  console.log(`Hello! Your name is ${name}, you’re ${age} years old and you come from ${country}`)
+}
+
+
 // 19. Do the same thing as question 18 but try to display their age into [Korean Age](https://www.omnicalculator.com/everyday-life/korean-age):
 //     1. What is your name ? the user will have to type his/her name
 //     2. What is your age ? the user will have to type his/her age
 //     3. Where are you from ? the user will have to type his/her home country
 //     4. Display a result as : “Hello! Your name is <name>, you’re <age> years old and you come from <country>, but in Korea your age is <Korean Age>…. Sorry you’re older here ! :)” .
+
+let interact19 = () => {
+  let name = prompt("What is your name?: ")
+  let age = parseInt(prompt("What is your age? "))
+  let koreanAge = age + 1;
+  let country = prompt("Where are you from? ")
+  console.log(`Hello! Your name is ${name}, you’re ${age} years old and you come from ${country},  but in Korea your age is ${koreanAge}…. Sorry you’re older here ! `)
+}
