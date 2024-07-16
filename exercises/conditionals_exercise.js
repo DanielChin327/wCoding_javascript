@@ -394,6 +394,20 @@ let checkNum22 = () => {
 //         - Bachelor's with < 3 years experience: "Eligible for Entry-level Role"
 //         - Otherwise: "Not Eligible"
 
+let checkNum23 = () => {
+  let qual = prompt("What is your degree?: (bachelor/ master/ phd)")
+  let years = prompt("What is years of exp?: ")
+  years = parseInt(years)
+  if (qual == "phd" && years >= 5) {
+    console.log("Senior")
+  }
+  else if(qual == "master" && (years > 3 && years < 5)){
+    console.log("Mid-Level")
+  }
+  else if (qual == "bachelor" && years < 3){
+    console.log("Senior")
+  }
+}
 
 // 24. **Translate a day of the week into a language:**
 //     - Prompt the user to enter a day of the week ("Monday" to "Sunday").
@@ -405,6 +419,35 @@ let checkNum22 = () => {
 //         - Friday -> Viernes
 //         - Saturday -> Sábado
 //         - Sunday -> Domingo
+
+let checkNum24 = () => {
+  let month = prompt("enter a day").toLowerCase()
+
+  switch (month) {
+    case 'monday':
+      console.log('lunes')
+      break;
+    case 'tuesday':
+      console.log('martes')
+      break;
+    case 'wednesday':
+      console.log('miércoles')
+      break;
+    case 'thursday':
+      console.log('jueves')
+      break;
+    case 'friday':
+      console.log('viernes')
+      break;
+    case 'saturday':
+      console.log('sabado')
+      break;
+    case 'sunday':
+      console.log('domingo')
+      break;
+  }
+}
+
 // 25. **Determine the number of days in a month:**
 //     - Prompt the user to enter a month (1-12 representing January to December).
 //     - Use a `switch` statement to determine and display the number of days in the entered month.
@@ -414,4 +457,57 @@ let checkNum22 = () => {
 //             - Take it to the next level by also prompting the year for February ONLY
 //                 - if it is a leap year display 29 days
 
-// 1. Go back through your challenges, and see if you can add `typeof` or `isNaN()` (is not a number) check if statements to inputs to see if they have inputted any invalid types. Though normally you will actually use the `try/catch error` handling.
+
+let checkNum25 = () => {
+  let month = prompt("write a month").toLowerCase()
+
+  switch(month){
+    case 'january':
+      console.log('31 days')
+      break
+    case 'march':
+      console.log('31 days')
+      break
+    case 'may':
+      console.log('31 days')
+      break
+    case 'july':
+      console.log('31 days')
+      break
+    case 'august':
+      console.log('31 days')
+      break
+    case 'october':
+      console.log('31 days')
+      break
+    case 'december':
+      console.log('31 days')
+      break
+    case 'april':
+      console.log('30 days')
+      break
+    case 'june':
+      console.log('30 days')
+      break
+    case 'september':
+      console.log('30 days')
+      break
+    case 'november':
+      console.log('30 days')
+      break
+    case 'february':
+      let year = prompt("what is the year?: ")
+      year = parseInt(year)
+      if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+          console.log("29 days")
+          break;
+      }
+      else {
+          console.log("28 days")
+          break;
+      }
+    default:
+      console.log("invalid input")
+      break;
+  }
+}
