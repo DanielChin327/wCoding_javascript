@@ -310,9 +310,12 @@ let checkNum19 = () => {
 //     - Prompt the user to enter a number.
 //     - Use ternary operators to validate and display "Valid" if the input is a number, otherwise "Invalid".
 
-
-
-
+let checkNum20 = () => {
+  let num = prompt("enter number: ")
+  num = parseInt(num)
+  let result = typeof(num) === "number"? "Valid":"Invalid"
+  console.log(result)
+}
 
 // 21. **Determine shipping cost based on location and weight:**
 // - Prompt the user to enter their shipping location ("domestic" or "international") and the weight of the package.
@@ -325,21 +328,74 @@ let checkNum19 = () => {
 //         - Weight <= 5 lbs: $15
 //         - Weight > 5 lbs and <= 10 lbs: $25
 //         - Weight > 10 lbs: $35
-// 1. **Classify a triangle based on side lengths:**
+
+let checkNum21 = () => {
+  let location = prompt("domestic or international? (domestic/international)")
+  let weight = prompt("weight?: ")
+  if (location == 'domestic') {
+    if (weight <= 5) {
+      console.log("$5")
+    }
+    else if (weight > 5 && weight <= 10) {
+      console.log("$10")
+    }
+    else {
+      console.log("$15")
+    }
+  }
+  else if(location == 'international'){
+    if (weight <= 5) {
+      console.log("$15")
+    }
+    else if (weight > 5 && weight <= 10) {
+      console.log("$25")
+    }
+    else {
+      console.log("$35")
+    }
+  }
+}
+
+// 22. **Classify a triangle based on side lengths:**
 //     - Prompt the user to enter three side lengths of a triangle.
 //     - Use nested `if` statements to classify and display the type of triangle based on the following conditions:
 //         - Equilateral triangle (all sides are equal).
 //         - Isosceles triangle (exactly two sides are equal).
 //         - Scalene triangle (all sides are different).
 //         - Not a triangle (sum of any two sides is less than or equal to the third side).
-//         2. **Determine eligibility for a job based on qualifications and experience:**
+//
+let checkNum22 = () => {
+  let side1 = prompt("side1: ")
+  let side2 = prompt("side2: ")
+  let side3 = prompt("side3: ")
+  side1 = parseInt(side1)
+  side2 = parseInt(side2)
+  side3 = parseInt(side3)
+  if((side1+side2)<=side3 || (side1+side3)<=side2 || (side2+side3)<=side1){
+    console.log("Not a triangle")
+  }
+  else if(side1 != side2 && side1 != side3 && side2 != side3) {
+    console.log("Scalene Triangle")
+  }
+  else if(side1 === side2 && side1 === side3 && side2 === side3) {
+    console.log("Equaliteral Triangle")
+  }
+  else{
+    console.log("Isosceles Triangle")
+  }
+}
+
+
+// 23. **Determine eligibility for a job based on qualifications and experience:**
 //     - Prompt the user to enter their qualifications ("Bachelor's", "Master's", "PhD") and years of experience.
 //     - Use nested `if` statements to determine and display eligibility for a job based on the following conditions:
 //         - PhD with >= 5 years experience: "Eligible for Senior Role"
 //         - Master's with 3-5 years experience: "Eligible for Mid-level Role"
 //         - Bachelor's with < 3 years experience: "Eligible for Entry-level Role"
 //         - Otherwise: "Not Eligible"
-// 3. **Translate a day of the week into a language:**
+
+
+// 24. **Translate a day of the week into a language:**
 //     - Prompt the user to enter a day of the week ("Monday" to "Sunday").
 //     - Use a `switch` statement to translate and display the day of the week in another language (e.g., English to Spanish):
 //         - Monday -> Lunes
@@ -349,7 +405,7 @@ let checkNum19 = () => {
 //         - Friday -> Viernes
 //         - Saturday -> Sábado
 //         - Sunday -> Domingo
-// 4. **Determine the number of days in a month:**
+// 25. **Determine the number of days in a month:**
 //     - Prompt the user to enter a month (1-12 representing January to December).
 //     - Use a `switch` statement to determine and display the number of days in the entered month.
 //         - January, March, May, July, August, October, December -> 31 days
