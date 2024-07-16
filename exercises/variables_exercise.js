@@ -45,7 +45,7 @@ let resultRemTen = 6 % 3;
 //     1. result1 is the addition of 32 and 8, divided by 6 minus 1
 //     2. result2 is my result1 divided by the number 5
 //     3. result3 is the remainder when result1 is divided by 5
-let result1 = 32 + 8;
+let result1 = ((32 + 8)/6)-1;
 let result2 = result1 / 5;
 let result3 = result1 % 5;
 

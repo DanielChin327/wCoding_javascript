@@ -311,6 +311,9 @@ let checkNum19 = () => {
 //     - Use ternary operators to validate and display "Valid" if the input is a number, otherwise "Invalid".
 
 
+
+
+
 // 21. **Determine shipping cost based on location and weight:**
 // - Prompt the user to enter their shipping location ("domestic" or "international") and the weight of the package.
 // - Use nested `if` statements to calculate and display the shipping cost based on the following conditions:
