@@ -61,25 +61,25 @@ let randNum = Math.floor(((Math.random() * 100) + 1))
 let game = () => {
 let numOfGames = prompt('Best out of how many games? ')
 numOfGames = parseInt(numOfGames)
-let choices = ['rock', 'paper', 'scissors']
+let choices = ['rock', 'paper', 'scissor']
 let computerCounter = 0;
 let playerCounter = 0;
 
 while (computerCounter < numOfGames && playerCounter < numOfGames) {
 let randNum = Math.floor((Math.random() * 3))
 let compChoice = choices[randNum]
-let playerChoice = prompt("rock, paper, or scissors")
-  if (playerChoice !== 'rock' && playerChoice !=='paper' && playerChoice !== 'scissors') {
+let playerChoice = prompt("rock, paper, or scissor")
+  if (playerChoice !== 'rock' && playerChoice !=='paper' && playerChoice !== 'scissor') {
     console.log(`not accepted input. you put in ${playerChoice}.\n`)
   }
   else if (compChoice === playerChoice) {
     console.log(`Tie. Both chose ${playerChoice}.`)
   }
-  else if ((compChoice === 'rock' && playerChoice === 'scissors')||(compChoice === 'paper' && playerChoice === 'rock') || (compChoice === 'scissors' && playerChoice === 'paper')) {
+  else if ((compChoice === 'rock' && playerChoice === 'scissor')||(compChoice === 'paper' && playerChoice === 'rock') || (compChoice === 'scissor' && playerChoice === 'paper')) {
     console.log(`Computer Wins. Computer chose ${compChoice}. Player chose ${playerChoice}.\n`)
     computerCounter += 1;
   }
-  else if ((compChoice === 'scissors' && playerChoice === 'rock')||(compChoice === 'rock' && playerChoice === 'paper') || (compChoice === 'paper' && playerChoice === 'scissors')) {
+  else if ((compChoice === 'scissor' && playerChoice === 'rock')||(compChoice === 'rock' && playerChoice === 'paper') || (compChoice === 'paper' && playerChoice === 'scissor')) {
     console.log(`Player Wins. Computer chose ${compChoice}. Player chose ${playerChoice}.\n`)
     playerCounter += 1;
   }
