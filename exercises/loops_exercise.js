@@ -19,11 +19,79 @@
 // - Setting up extra validations for user input (within the correct range)
 // - Creating a different set of difficulties and a prompt for difficulty level
 
-let guessGame = () => {
-let difficultChoice;
-let validAnswer = false;
 
-while (validAnswer === false) {
+let guessGame = () => {
+
+let angerCounter = 0; 
+while (angerCounter < 4) {
+  let again = prompt("Play a game? (yes/no)");
+  let counter = 0; 
+  if (again !== 'yes') {
+    break;
+  }
+  let randNum;
+  let chooseDifficulty = prompt("Choose your difficulty: easy/mid/hard")
+  if (chooseDifficulty === 'easy') {
+     randNum = Math.floor((Math.random() * 5) + 1);
+  }
+  else if (chooseDifficulty === 'mid') {
+    randNum = Math.floor((Math.random() * 20) + 1);
+  }
+  else if (chooseDifficulty === 'hard') {
+    randNum = Math.floor((Math.random() * 20) + 1);
+  }
+  while (true) {
+    let playerChoice = parseInt(prompt("Choose a number: "));
+    if (playerChoice === randNum) {
+      console.log(`That is correct! The number was ${randNum}. It took you ${counter} tries.`);
+      break;
+    } else if (playerChoice < randNum) {
+      console.log("Too low");
+      counter++
+    } else if (playerChoice > randNum) {
+      console.log("Too high");
+      counter++
+    } else if (isNaN(playerChoice)) {
+      angerCounter++;
+      if (angerCounter === 1) {
+        console.log("Mate. That ain't a number.");
+      } else if (angerCounter === 2) {
+        console.log("MATE. I said that ain't a number.");
+      } else if (angerCounter === 3) {
+        console.log("....You takin' the mick on me?");
+      } else if (angerCounter === 4) {
+        console.log("...Last chance, bruv.");
+      } else {
+        console.log("Alright. I'm out.");
+        break;
+      }
+    }
+  }
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let guessGame2 = () => {
+  let difficultChoice;
+  let validAnswer = false;
+
+  while (validAnswer === false) {
   difficultChoice = prompt("Choose difficulty : (easy/mid/hard)");
   if (difficultChoice === 'easy' || difficultChoice === 'mid' || difficultChoice === 'hard'){
     validAnswer = true;
@@ -31,21 +99,21 @@ while (validAnswer === false) {
   else {
     console.log("Invalid Input. Choose easy, mid, or hard")
   }
-}
+  }
 
-let randNum;
-let counter = 0;
-if (difficultChoice === "easy"){
+  let randNum;
+  let counter = 0;
+  if (difficultChoice === "easy"){
   randNum = Math.floor(((Math.random() * 10) + 1))
-}
-else if(difficultChoice === 'mid') {
+  }
+  else if(difficultChoice === 'mid') {
   randNum = Math.floor(((Math.random() * 50) + 1))
-}
-else if(difficultChoice === 'hard') {
+  }
+  else if(difficultChoice === 'hard') {
   randNum = Math.floor(((Math.random() * 100) + 1))
-}
+  }
 
-while(true){
+  while(true){
   let guess = parseInt(prompt("Guess a number: "))
   if (isNaN(guess)) {
     console.log(`Invalid input. You need to use a number.`)
@@ -62,8 +130,8 @@ while(true){
     console.log(`Incorrect. Your guess was too high.`)
     counter++;
   }
-}
-while(true){
+  }
+  while(true){
   let input = confirm("Play again? ")
   if (input === true) {
     guessGame();
@@ -71,7 +139,7 @@ while(true){
   else{
     break;
   }
-}
+  }
 }
 
 
@@ -92,8 +160,7 @@ while(true){
 
 
 
-
-let game = () => {
+let rpsGame = () => {
 let numOfGames = prompt('Best out of how many games? ')
 numOfGames = parseInt(numOfGames)
 let choices = ['rock', 'paper', 'scissor']
@@ -128,10 +195,12 @@ while(true){
     break;
   }
   else {
-    game();
+    rpsGame();
   }
 }
 }
+
+
 
 // game();
 //   ## Drawing a Pyramid  - Nested For Loop practice
