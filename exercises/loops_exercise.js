@@ -4,39 +4,74 @@
 
 // For this I will provide basic algorithmic thinking and design process so you understand what you should do before starting any actual coding project.
 
-// 1. Setup Initial Variable (need at least 2 Numbers and one Boolean) DONE
-// 2. Generate the random target number.
-// 3. Start the game loop
+// 1. Setup Initial Variable (need at least 2 Numbers and one Boolean) DONE (The Random Number and the User Guess Number)
+// 2. Generate the random target number. DONE
+// 3. Start the game loop DONE
 // 4. Prompt for the guess
-//     1. Validate if the guess is a number
-// 5. Compare the guess to target number
-// 6. Provide feedback to user
+//     1. Validate if the guess is a number DONE (isNan(Guess))
+// 5. Compare the guess to target number DONE (Too high. Too low)
+// 6. Provide feedback to user DONE()
 // 7. Increase the # of attempts
 
 // Once you finish all 3 assignments you can take this further by
 
-// - Having a play again option
+// - Having a play again option DONE
 // - Setting up extra validations for user input (within the correct range)
 // - Creating a different set of difficulties and a prompt for difficulty level
 
 let guessGame = () => {
-let randNum = Math.floor(((Math.random() * 100) + 1))
-  while(true){
-    let guess = parseInt(prompt("Guess a number from 1 to 100: "))
-    if (isNaN(guess)) {
-      console.log(`Invalid input. You need to use a number.`)
-    }
-    else if (randNum === guess) {
-      console.log(`Correct! the number was ${randNum}!`)
-      break;
-    }
-    else if (randNum > guess) {
-      console.log(`Incorrect. Your guess was too low.`)
-    }
-    else if (randNum < guess) {
-      console.log(`Incorrect. Your guess was too high.`)
-    }
+let difficultChoice;
+let validAnswer = false;
+
+while (validAnswer === false) {
+  difficultChoice = prompt("Choose difficulty : (easy/mid/hard)");
+  if (difficultChoice === 'easy' || difficultChoice === 'mid' || difficultChoice === 'hard'){
+    validAnswer = true;
   }
+  else {
+    console.log("Invalid Input. Choose easy, mid, or hard")
+  }
+}
+
+let randNum;
+let counter = 0;
+if (difficultChoice === "easy"){
+  randNum = Math.floor(((Math.random() * 10) + 1))
+}
+else if(difficultChoice === 'mid') {
+  randNum = Math.floor(((Math.random() * 50) + 1))
+}
+else if(difficultChoice === 'hard') {
+  randNum = Math.floor(((Math.random() * 100) + 1))
+}
+
+while(true){
+  let guess = parseInt(prompt("Guess a number: "))
+  if (isNaN(guess)) {
+    console.log(`Invalid input. You need to use a number.`)
+  }
+  else if (randNum === guess) {
+    console.log(`Correct! the number was ${randNum}! It took you ${counter} tries!`)
+    break;
+  }
+  else if (randNum > guess) {
+    console.log(`Incorrect. Your guess was too low.`)
+    counter++;
+  }
+  else if (randNum < guess) {
+    console.log(`Incorrect. Your guess was too high.`)
+    counter++;
+  }
+}
+while(true){
+  let input = confirm("Play again? ")
+  if (input === true) {
+    guessGame();
+  }
+  else{
+    break;
+  }
+}
 }
 
 
@@ -65,6 +100,7 @@ let choices = ['rock', 'paper', 'scissor']
 let computerCounter = 0;
 let playerCounter = 0;
 
+
 while (computerCounter < numOfGames && playerCounter < numOfGames) {
 let randNum = Math.floor((Math.random() * 3))
 let compChoice = choices[randNum]
@@ -83,15 +119,12 @@ let playerChoice = prompt("rock, paper, or scissor")
     console.log(`Player Wins. Computer chose ${compChoice}. Player chose ${playerChoice}.\n`)
     playerCounter += 1;
   }
-  else{
-    console.log(`Computer Choice: ${compChoice} / Player Choice: ${playerChoice}`)
-  }
 }
-console.log(`Scores-> Computer:${computerCounter} and Player:${playerCounter}.\n`)
 
 while(true){
   let playGame = prompt("Play Game? (yes/no)")
   if (playGame === 'no'){
+    console.log(`Computer won games. Player won games.`)
     break;
   }
   else {
@@ -115,9 +148,63 @@ while(true){
 
 // - If you want a real challenge, have it output a diamond instead.
 
+// let height = parseInt(prompt("Provide a number: "))
 
-// let result = ''
-// for (let i = 0; i < 5; i ++) {
-//   result += "x"
-//   console.log(result)
+// let height = 25;
+// for (let i = 1; i <= height; i++) {
+//   let result = '';
+
+//   // White Spaces
+//   // For each i(line), add whitespace
+//   // ex. line 2, j = 2; j < 3 - 1; j++
+//   for (let j = 0; j < height - i; j++) {
+//   result += ' ';
+//   }
+
+//   // Adding stars
+//   for (let k = 0; k < (2 * i - 1); k++) {
+//   result += 'X';
+//   }
+
+//   console.log(result);
+//   }
+// for (let i = height - 1; i >= 1; i--) {
+//   let result = '';
+
+//   // Adding the white spaces
+//   for (let j = 0; j < height - i; j++) {
+//       result += ' ';
+//   }
+
+//   // Adding stars
+//   for (let k = 0; k < (2 * i - 1); k++) {
+//       result += 'X';
+//   }
+
+//   console.log(result);
 // }
+
+
+
+
+
+// Exercise 1: Print the first 10 multiples of 3 using a `for` loop.
+
+let exerciseOne = () => {
+  for (let i = 1; i < 10; i++){
+    console.log(i * 3);
+  }
+}
+
+// Exercise 2: Use a `while` loop to print all the numbers from 10 down to 1.
+
+let exerciseTwo = () => {
+  let x = 10
+  while (x >= 1) {
+    console.log(x);
+    x--
+  }
+}
+
+
+// Exercise 3: Given an object and an array, use `for...in` to iterate over the object properties and `for...of` to iterate over the array elements.
