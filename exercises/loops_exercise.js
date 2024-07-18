@@ -161,44 +161,114 @@ let guessGame2 = () => {
 
 
 let rpsGame = () => {
-let numOfGames = prompt('Best out of how many games? ')
-numOfGames = parseInt(numOfGames)
-let choices = ['rock', 'paper', 'scissor']
-let computerCounter = 0;
-let playerCounter = 0;
+  let numOfGames = prompt('Best out of how many games? ')
+  numOfGames = parseInt(numOfGames)
+  let choices = ['rock', 'paper', 'scissor']
+  let computerCounter = 0;
+  let playerCounter = 0;
 
 
-while (computerCounter < numOfGames && playerCounter < numOfGames) {
-let randNum = Math.floor((Math.random() * 3))
-let compChoice = choices[randNum]
-let playerChoice = prompt("rock, paper, or scissor")
-  if (playerChoice !== 'rock' && playerChoice !=='paper' && playerChoice !== 'scissor') {
-    console.log(`not accepted input. you put in ${playerChoice}.\n`)
+  while (computerCounter < numOfGames && playerCounter < numOfGames) {
+  let randNum = Math.floor((Math.random() * 3))
+  let compChoice = choices[randNum]
+  let playerChoice = prompt("rock, paper, or scissor")
+    if (playerChoice !== 'rock' && playerChoice !=='paper' && playerChoice !== 'scissor') {
+      console.log(`not accepted input. you put in ${playerChoice}.\n`)
+    }
+    else if (compChoice === playerChoice) {
+      console.log(`Tie. Both chose ${playerChoice}.`)
+    }
+    else if ((compChoice === 'rock' && playerChoice === 'scissor')||(compChoice === 'paper' && playerChoice === 'rock') || (compChoice === 'scissor' && playerChoice === 'paper')) {
+      console.log(`Computer Wins. Computer chose ${compChoice}. Player chose ${playerChoice}.\n`)
+      computerCounter += 1;
+    }
+    else if ((compChoice === 'scissor' && playerChoice === 'rock')||(compChoice === 'rock' && playerChoice === 'paper') || (compChoice === 'paper' && playerChoice === 'scissor')) {
+      console.log(`Player Wins. Computer chose ${compChoice}. Player chose ${playerChoice}.\n`)
+      playerCounter += 1;
+    }
   }
-  else if (compChoice === playerChoice) {
-    console.log(`Tie. Both chose ${playerChoice}.`)
-  }
-  else if ((compChoice === 'rock' && playerChoice === 'scissor')||(compChoice === 'paper' && playerChoice === 'rock') || (compChoice === 'scissor' && playerChoice === 'paper')) {
-    console.log(`Computer Wins. Computer chose ${compChoice}. Player chose ${playerChoice}.\n`)
-    computerCounter += 1;
-  }
-  else if ((compChoice === 'scissor' && playerChoice === 'rock')||(compChoice === 'rock' && playerChoice === 'paper') || (compChoice === 'paper' && playerChoice === 'scissor')) {
-    console.log(`Player Wins. Computer chose ${compChoice}. Player chose ${playerChoice}.\n`)
-    playerCounter += 1;
+
+  while(true){
+    let playGame = prompt("Play Game? (yes/no)")
+    if (playGame === 'no'){
+      console.log(`Computer won games. Player won games.`)
+      break;
+    }
+    else {
+      rpsGame();
+    }
   }
 }
 
-while(true){
-  let playGame = prompt("Play Game? (yes/no)")
-  if (playGame === 'no'){
-    console.log(`Computer won games. Player won games.`)
+
+
+
+
+
+while (true) {
+  let playGame = prompt("Play game: (y/n)");
+  if (playGame !== "y") {
+    break; 
+  }
+
+while(true) {
+  let numWins = parseInt(prompt("Whoever wins to: "));
+  if (isNaN(numWins) || numWins <= 0) {
+    console.log("Please enter a valid positive number.");
+    continue;
+  }
+
+  let rounds = 0;
+  let compWins = 0;
+  let playerWins = 0; 
+
+  while (compWins < numWins && playerWins < numWins) {
+    let choices = ['rock', 'paper', 'scissors']; 
+    let randNum = Math.floor(Math.random() * 3);
+    let compChoice = choices[randNum];
+    let playerChoose = prompt("Choose: rock, paper, or scissors");
+
+    if (!choices.includes(playerChoose)) {
+      console.log("Invalid choice, please choose rock, paper, or scissors.");
+      continue;
+    }
+
+    console.log(`Player chose: ${playerChoose}`);
+    console.log(`Computer chose: ${compChoice}`);
+
+    if (compChoice === playerChoose) {
+      console.log("TIE");
+    } else if (
+      (compChoice === "rock" && playerChoose === "scissors") || 
+      (compChoice === "paper" && playerChoose === "rock") || 
+      (compChoice === "scissors" && playerChoose === "paper")
+    ) {
+      console.log("Computer wins this round");
+      compWins++;
+    } else {
+      console.log("Player wins this round");
+      playerWins++;
+    }
+    rounds++;
+  }
+
+  console.log(`Number of games played this round: ${rounds}`);
+  if (compWins > playerWins) {
+    console.log(`Computer is the overall winner with ${compWins} to ${playerWins} wins!`);
+  } else if (playerWins > compWins) {
+    console.log(`Player is the overall winner with ${playerWins} to ${compWins} wins!`);
+  }
+
+  let playAgainResponse = prompt("Do you want to play again? (y/n)");
+  if (playAgainResponse !== "y") {
     break;
-  }
-  else {
-    rpsGame();
+   }
   }
 }
-}
+
+
+
+
 
 
 
