@@ -34,7 +34,7 @@ while (angerCounter < 4) {
   if (chooseDifficulty === 'easy') {
      randNum = Math.floor((Math.random() * 5) + 1);
   }
-  else if (chooseDifficulty === 'mid') {
+  else if (chooseDifficulty === 'mid'){ 
     randNum = Math.floor((Math.random() * 20) + 1);
   }
   else if (chooseDifficulty === 'hard') {
@@ -211,6 +211,7 @@ while (true) {
     break; 
   }
 
+// You need to add a while loop here to make it loop again without a function. 
 while(true) {
   let numWins = parseInt(prompt("Whoever wins to: "));
   if (isNaN(numWins) || numWins <= 0) {
@@ -262,7 +263,7 @@ while(true) {
   let playAgainResponse = prompt("Do you want to play again? (y/n)");
   if (playAgainResponse !== "y") {
     break;
-   }
+  }
   }
 }
 
