@@ -1,58 +1,58 @@
 
-let rpsGameProto = () => {
-  let choices = ['rock', 'paper', 'scissor']
-  let randNum = Math.floor((Math.random() * 3))
-  let compChoice = choices[randNum]
-  let rounds;
+// let rpsGameProto = () => {
+//   let choices = ['rock', 'paper', 'scissor']
+//   let randNum = Math.floor((Math.random() * 3))
+//   let compChoice = choices[randNum]
+//   let rounds;
 
-  while(true) {
-    rounds =  parseInt(prompt("Play until someone wins to: "))
-    if (isNaN(rounds)) {
-      console.log(`Invalid input. You wrote ${rounds}`)
-    }
-    else {
-      break;
-    }
-  }
+//   while(true) {
+//     rounds =  parseInt(prompt("Play until someone wins to: "))
+//     if (isNaN(rounds)) {
+//       console.log(`Invalid input. You wrote ${rounds}`)
+//     }
+//     else {
+//       break;
+//     }
+//   }
 
-  let counter = 0;
-  let compWins = 0;
-  let playerWins = 0;
+//   let counter = 0;
+//   let compWins = 0;
+//   let playerWins = 0;
 
-  while (counter < rounds) {
-    while(true) {
-      playerChoice = (prompt('rock...paper...scissor! (choose)').toLowerCase())
-      if ((playerChoice === 'rock') || playerChoice === 'paper' || playerChoice === 'scissor') {
-        break;
-      }
-      else {
-        console.log(`Invalid Input. You wrote ${playerChoice}`)
-      }
-    }
+//   while (counter < rounds) {
+//     while(true) {
+//       playerChoice = (prompt('rock...paper...scissor! (choose)').toLowerCase())
+//       if ((playerChoice === 'rock') || playerChoice === 'paper' || playerChoice === 'scissor') {
+//         break;
+//       }
+//       else {
+//         console.log(`Invalid Input. You wrote ${playerChoice}`)
+//       }
+//     }
 
-    randNum = Math.floor((Math.random() * 3))
-    compChoice = choices[randNum]
-    if (compChoice === playerChoice) {
-      console.log(`TIE \n Both chose ${playerChoice}`)
-    }
-    else if ((compChoice === 'rock' && playerChoice === 'scissor') || (compChoice === 'paper' && playerChoice === 'rock') || (compChoice === 'scissor' && playerChoice === 'paper')) {
-      console.log(`Round: ${counter + 1}\n Winner: Computer \n Computer: ${compChoice} \n Player: ${playerChoice}`)
-      counter++
-      compWins++
-    }
-    else if ((compChoice === 'rock' && playerChoice === 'paper') || (compChoice === 'paper' && playerChoice === 'scissor') || (compChoice === 'scissor' && playerChoice === 'rock')){
-      console.log(`Round: ${counter + 1}\n Winner: Player \n Computer: ${compChoice} \n Player: ${playerChoice}`)
-      counter++
-      playerWins++
-    }
-    else {
-      console.log("bug")
-    }
-  }
+//     randNum = Math.floor((Math.random() * 3))
+//     compChoice = choices[randNum]
+//     if (compChoice === playerChoice) {
+//       console.log(`TIE \n Both chose ${playerChoice}`)
+//     }
+//     else if ((compChoice === 'rock' && playerChoice === 'scissor') || (compChoice === 'paper' && playerChoice === 'rock') || (compChoice === 'scissor' && playerChoice === 'paper')) {
+//       console.log(`Round: ${counter + 1}\n Winner: Computer \n Computer: ${compChoice} \n Player: ${playerChoice}`)
+//       counter++
+//       compWins++
+//     }
+//     else if ((compChoice === 'rock' && playerChoice === 'paper') || (compChoice === 'paper' && playerChoice === 'scissor') || (compChoice === 'scissor' && playerChoice === 'rock')){
+//       console.log(`Round: ${counter + 1}\n Winner: Player \n Computer: ${compChoice} \n Player: ${playerChoice}`)
+//       counter++
+//       playerWins++
+//     }
+//     else {
+//       console.log("bug")
+//     }
+//   }
 
-  console.log(`HERE ARE THE RESULTS \n Rounds Played:${rounds} \n Computer Won: ${compWins}\n Player Won:${playerWins}`)
-  inviteGame()
-}
+//   console.log(`HERE ARE THE RESULTS \n Rounds Played:${rounds} \n Computer Won: ${compWins}\n Player Won:${playerWins}`)
+//   inviteGame()
+// }
 
 // Rock Paper Scissor: Function Version:
 
@@ -125,33 +125,30 @@ function rpsGame() {
   inviteGame();
 }
 
-
-
-let guessGameProto= () => {
-  let randomNum = Math.floor((Math.random()* 10) + 1)
-  while(true){
-    let playerGuess;
-    playerGuess = (prompt("Guess a number"))
-      if (isNaN(playerGuess)) {
-        console.log(`Invalid Input. You typed in ${playerGuess}`)
-      }
-      else {
-        playerGuess = parseInt(playerGuess)
-        if (playerGuess === randomNum) {
-          console.log(`Correct! the number was ${randomNum}`)
-          break;
-        }
-        else if (playerGuess < randomNum) {
-          console.log(`Your guess was too low`)
-        }
-        else if (playerGuess > randomNum) {
-          console.log(`Your guess was too high`)
-        }
-      }
-  }
-  inviteGame()
-}
-
+// let guessGameProto= () => {
+//   let randomNum = Math.floor((Math.random()* 10) + 1)
+//   while(true){
+//     let playerGuess;
+//     playerGuess = (prompt("Guess a number"))
+//       if (isNaN(playerGuess)) {
+//         console.log(`Invalid Input. You typed in ${playerGuess}`)
+//       }
+//       else {
+//         playerGuess = parseInt(playerGuess)
+//         if (playerGuess === randomNum) {
+//           console.log(`Correct! the number was ${randomNum}`)
+//           break;
+//         }
+//         else if (playerGuess < randomNum) {
+//           console.log(`Your guess was too low`)
+//         }
+//         else if (playerGuess > randomNum) {
+//           console.log(`Your guess was too high`)
+//         }
+//       }
+//   }
+//   inviteGame()
+// }
 
 let chooseDifficulty = (choice) => {
   choice = prompt("Choose difficulty -> (easy / mid / hard)")
@@ -176,16 +173,6 @@ let guessGame = (choice) => {
   let playerGuess = playerChoose();
 
 }
-
-
-
-
-
-
-
-
-
-
 
 let inviteGame = () => {
   let accept = prompt('Play a Game?: y/n').toLowerCase()

@@ -19,7 +19,7 @@ else {
 }
 }
 }
-    
+
 let randomNum = () => {
 let difficulty = chooseDifficulty();
 let randomNum;
@@ -29,7 +29,7 @@ randomNum = (Math.floor(Math.random() * 5) + 1)
 break
 case "mid":
 randomNum = (Math.floor(Math.random() * 20) + 1)
-breaks
+break
 case "hard":
 randomNum = (Math.floor(Math.random() * 100) + 1)
 break
@@ -38,4 +38,35 @@ console.log("bug in randomNum Function")
 break;
 }
 return randomNum;
+}
+
+let playerGuess = () => {
+  let answer
+  while(true) {
+    if (isNaN(answer)){
+      answer = parseInt(prompt("Guess a number"))
+      console.log("Invalid Input. Write a number")
+    }
+    else {
+      break;
+    }
+  }
+  return answer
+}
+
+
+let guessGame = () => {
+  let number = randomNum();
+  let guess;
+  while (true) {
+    guess = playerGuess();
+    if (guess < number) {
+      console.log("Too low! Try again.");
+    } else if (guess > number) {
+      console.log("Too high! Try again.");
+    } else {
+      console.log("Congratulations! You guessed the number!");
+      break;
+    }
+  }
 }
