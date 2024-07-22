@@ -15,9 +15,9 @@
 const arrOfNum = [1,2,3,4,5]
 
 arrOfNum.push(6)
-console.log(arrOfNum)
+// console.log(arrOfNum)
 arrOfNum.shift();
-console.log(arrOfNum)
+// console.log(arrOfNum)
 
 let sumArr = (arr) => {
   let result = 0;
@@ -97,7 +97,7 @@ let arrOfArr = [
   [7,8,9]
 ]
 
-console.log(arrOfArr);
+// console.log(arrOfArr);
 
 let sumGrid = (arr) => {
   let result = 0;
@@ -231,7 +231,6 @@ let totalCost = (arr) => {
       else if (keys === 'quantity') {
         quantity = products[keys] // Grab the Value
       }
-
     }
     costs = price * quantity
     result += costs
@@ -239,7 +238,6 @@ let totalCost = (arr) => {
   return result
 }
 
-console.log(totalCost(rpgProducts))
 
 // ### Object in an Array in an Object + Methods
 
@@ -251,3 +249,66 @@ console.log(totalCost(rpgProducts))
 //             1. where each `subject`has a name and a score as a %.
 //     2. Access and print the student's grades, showing each subject and its score.
 //     3. Create a method for the `student`that calculates and displays their average score.
+
+
+const wizardStudents = [
+  {
+    name: "Harry Potter",
+    age: 15,
+    grades: [
+      { subject: "Defense Against the Dark Arts", score: 85 },
+      { subject: "Potions", score: 78 },
+      { subject: "Transfiguration", score: 88 },
+      { subject: "Herbology", score: 75 }
+    ]
+  },
+  {
+    name: "Hermione Granger",
+    age: 15,
+    grades: [
+      { subject: "Defense Against the Dark Arts", score: 95 },
+      { subject: "Potions", score: 98 },
+      { subject: "Transfiguration", score: 99 },
+      { subject: "Herbology", score: 94 }
+    ]
+  },
+  {
+    name: "Ron Weasley",
+    age: 15,
+    grades: [
+      { subject: "Defense Against the Dark Arts", score: 70 },
+      { subject: "Potions", score: 65 },
+      { subject: "Transfiguration", score: 72 },
+      { subject: "Herbology", score: 68 }
+    ]
+  }
+];
+
+
+let printWizardGrades = (arr) => {
+  for (let wizards of arr) {
+    let scores = '';
+    for (let grades in wizards) { // grades are keys in the object wizards
+      if (grades === 'grades') {
+        scores = wizards[grades]
+      }
+    }
+    return scores;
+  }
+}
+
+// console.log(printWizardGrades(wizardStudents))
+
+let getWizardScoreAverage = (wizards) => {
+  let grades = printWizardGrades(wizards)
+  let avg;
+  let scores = [];
+  for (let info in grades){
+    if (info === 'score') {
+      scores.push(grades[info])
+    }
+  }
+  return scores
+}
+
+console.log(getWizardScoreAverage(wizardStudents))
