@@ -39,3 +39,9 @@ let randomNum = () => {
   }
   return randomNum;
 }
+
+
+let guessTheNumber = () => {
+  let randomNum = randomNum();
+  console.log(randomNum)
+}
