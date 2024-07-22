@@ -286,29 +286,37 @@ const wizardStudents = [
 
 
 let printWizardGrades = (arr) => {
+  let scores = [];
   for (let wizards of arr) {
-    let scores = '';
     for (let grades in wizards) { // grades are keys in the object wizards
       if (grades === 'grades') {
-        scores = wizards[grades]
+        scores.push(wizards[grades])
       }
     }
-    return scores;
   }
+  return scores;
 }
 
-// console.log(printWizardGrades(wizardStudents))
+console.log(printWizardGrades(wizardStudents));
 
-let getWizardScoreAverage = (wizards) => {
-  let grades = printWizardGrades(wizards)
-  let avg;
-  let scores = [];
-  for (let info in grades){
-    if (info === 'score') {
-      scores.push(grades[info])
+
+let wizardGradeAvg = (arr, name) => {
+  let student;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name === name) {
+      student = arr[i];
+      break;
     }
   }
-  return scores
+  let totalSum = 0;
+  let counter = 0;
+  for (let i = 0; i < student.grades.length; i++) {
+    totalSum += student.grades[i].score;
+    counter++;
+  }
+  let averageScore = totalSum / counter;
+  return averageScore;
 }
 
-console.log(getWizardScoreAverage(wizardStudents))
+
+console.log(wizardGradeAvg(wizardStudents, "Ron Weasley"))
