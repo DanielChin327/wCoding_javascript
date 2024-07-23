@@ -304,17 +304,18 @@ let wizardGradeAvg = (arr, name) => {
   let student;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].name === name) {
-      student = arr[i];
+      student = arr[i]; // if name is Ron Weasley -> grab Ron Weasley's entire information (object)
+      console.log(student)
       break;
     }
   }
   let totalSum = 0;
   let counter = 0;
-  for (let i = 0; i < student.grades.length; i++) {
-    totalSum += student.grades[i].score;
+  for (let i = 0; i < student.grades.length; i++) { //although student is object, student.grades.length can be done bc array.
+    totalSum += student.grades[i].score; //student is a single object. grades will grab the grades[i]
     counter++;
   }
-  let averageScore = totalSum / counter;
+  let averageScore = totalSum / counter; //instead of counter the lenght could have been used as well.
   return averageScore;
 }
 
