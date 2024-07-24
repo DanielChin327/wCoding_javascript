@@ -163,5 +163,86 @@
 
 // Exercise 6
 
-const divEx6 = document.createElement('div')
-divEx6.id = "output"
+// // Create table elements
+// const table = document.createElement('table');
+// const thead = document.createElement('thead');
+// const tbody = document.createElement('tbody');
+// const headerRow = document.createElement('tr');
+
+// // Create and append headers
+// ['Browsers', 'Developers', 'Market shares'].forEach(text => {
+//   const th = document.createElement('th');
+//   th.scope = "col";
+//   th.textContent = text;
+//   headerRow.appendChild(th);
+// });
+// thead.appendChild(headerRow);
+
+// // Create and append rows
+// const rows = [
+//   ['Chrome', 'Google', '69.28%'],
+//   ['Edge', 'Microsoft', '7.75%'],
+//   ['Firefox', 'Mozilla', '7.48%'],
+//   ['Safari', 'Apple', '3.73%']
+// ];
+
+// rows.sort((a, b) => parseFloat(b[2]) - parseFloat(a[2]));
+
+// rows.forEach(rowData => {
+//   const row = document.createElement('tr');
+//   const th = document.createElement('th');
+//   th.scope = "row";
+//   th.textContent = rowData[0];
+//   row.appendChild(th);
+
+//   for (let i = 1; i < rowData.length; i++) {
+//     const td = document.createElement('td');
+//     td.textContent = rowData[i];
+//     row.appendChild(td);
+//   }
+
+//   tbody.appendChild(row);
+// });
+
+// // Append thead and tbody to the table
+// table.appendChild(thead);
+// table.appendChild(tbody);
+
+// // Append table to the desired div (assuming there is a div with id 'output2' already created)
+// document.body.appendChild(table);
+
+// // Exercise 7
+// const spanElement = document.querySelector("#output3 span#moon");
+// const figureElement = document.createElement("figure");
+// const imgElement = document.createElement("img");
+// imgElement.src = "/images/sun.jpg";
+
+// const figcaptionElement = document.createElement("figcaption");
+// figcaptionElement.textContent = "It's sunny!";
+
+// figureElement.appendChild(imgElement);
+// figureElement.appendChild(figcaptionElement);
+
+// spanElement.parentNode.replaceChild(figureElement, spanElement);
+
+
+// Exercise 7
+
+// Create the initial span with image
+const span = document.createElement('span');
+span.id = 'moon';
+const imgMoon = document.createElement('img');
+imgMoon.src = 'moon.jpeg';
+span.appendChild(imgMoon);
+
+// Create the new figure with image and figcaption
+const figure = document.createElement('figure');
+const imgSun = document.createElement('img');
+imgSun.src = 'sun.jpeg';
+const figcaption = document.createElement('figcaption');
+figcaption.textContent = "It's sunny!";
+figure.appendChild(imgSun);
+figure.appendChild(figcaption);
+
+// Replace the span with the figure
+span.parentNode.replaceChild(figure, span);
