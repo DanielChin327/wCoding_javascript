@@ -161,4 +161,7 @@
 // divEx5.appendChild(ordList)
 
 
-//
+// Exercise 6
+
+const divEx6 = document.createElement('div')
+divEx6.id = "output"
