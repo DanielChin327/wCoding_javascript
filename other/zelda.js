@@ -8,9 +8,3 @@ const activate = document.querySelector('.zelda-noise')
 activate.addEventListener("click", (event) => {
   audio.play();
 });
-
-
-// button.addEventListener('click', (event) =>{
-//   audio.play();
-
-// })
