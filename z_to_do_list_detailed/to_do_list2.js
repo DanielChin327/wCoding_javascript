@@ -9,7 +9,7 @@ addButton.addEventListener('click', function(){
 
   let deleteButton = document.createElement('button')
   deleteButton.type = 'button'
-  deleteButton.innerText = 'delete'
+  deleteButton.innerText = 'Delete'
   deleteButton.id = 'delete-button'
   newItem.appendChild(deleteButton)
 
