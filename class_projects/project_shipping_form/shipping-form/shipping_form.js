@@ -13,13 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
       // Method 1 - setting variables to object.
 
       // let formData = new FormData(shippingForm)
-
-      // console.log(formData)
-
       // let firstName = formData.get("firstName") //grabbed from name attribute
-
-      // console.log(firstName)
-
       // let lastName = formData.get('lastName')
       // let date = formData.get('date')
       // let city = formData.get('city')
@@ -66,16 +60,16 @@ document.addEventListener("DOMContentLoaded", function(){
       }
   });
 
-
-
-});
-
 function resetFormError(shippingForm) {
   shippingForm.addEventListener('input', function(e) {
-      console.log("input detected");
       e.target.classList.remove("input-error");
   });
 }
+
+resetFormError(shippingForm);
+});
+
+
 
 function verifyFormData(firstName, lastName, birthDate, city, email) {
   let errors = [];
