@@ -1,5 +1,5 @@
 body{
-
+  background-color:lightyellow;
   font-family: "Kanit", sans-serif;
   font-weight: 100;
   font-style: normal;
@@ -31,7 +31,7 @@ body{
   background-color:gray;
   border-radius:4px;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 22px;
   font-family: monospace;
   color: white;
   margin-left:12px;
@@ -50,11 +50,13 @@ body{
   font-size: 24px;
 }
 
-/* #delete-button{
+#delete-button{
   background-color:rgb(255, 74, 74);
+  font-weight:bold;
+  font-size:20px;
   color:white;
   border-radius:4px;
-} */
+}
 
 footer{
   text-align:center;
