@@ -1,21 +1,16 @@
 body{
-  background:rgb(251, 251, 211);
+
   font-family: "Kanit", sans-serif;
   font-weight: 100;
   font-style: normal;
 
-  /* flexed to get footer at the bottom */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
-
 }
 
 .container{
-
   display: flex;
   justify-content:center;
   align-items:center;
+
 }
 
 .info{
@@ -55,11 +50,11 @@ body{
   font-size: 24px;
 }
 
-#delete-button{
+/* #delete-button{
   background-color:rgb(255, 74, 74);
   color:white;
   border-radius:4px;
-}
+} */
 
 footer{
   text-align:center;

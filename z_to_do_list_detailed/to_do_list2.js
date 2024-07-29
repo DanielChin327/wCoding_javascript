@@ -11,6 +11,7 @@ addButton.addEventListener('click', function(){
   deleteButton.type = 'button'
   deleteButton.innerText = 'Delete'
   deleteButton.id = 'delete-button'
+  deleteButton.className = 'btn btn-danger'
   newItem.appendChild(deleteButton)
 
   deleteButton.addEventListener('click', function() {
