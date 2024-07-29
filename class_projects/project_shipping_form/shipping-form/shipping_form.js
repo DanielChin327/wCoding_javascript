@@ -1,53 +1,95 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-  let shippingForm = document.getElementById('shipping-form')
+  let shippingForm = document.getElementById('shipping-form');
 
   shippingForm.addEventListener('submit', function(e) {
-    // Prevent the default behavior submission
-    // the default behavior of a submiited form is to refresh the page
-    e.preventDefault();
+      // Prevent the default behavior submission
+      // the default behavior of a submitted form is to refresh the page
+      e.preventDefault();
+
+      let formData = new FormData(shippingForm);
+      let hasErrors = false;
+
+      // Method 1 - setting variables to object.
+
+      // let formData = new FormData(shippingForm)
+
+      // console.log(formData)
+
+      // let firstName = formData.get("firstName") //grabbed from name attribute
+
+      // console.log(firstName)
+
+      // let lastName = formData.get('lastName')
+      // let date = formData.get('date')
+      // let city = formData.get('city')
+      // let email = formData.get('email')
+      // let agree = formData.get('agree')
+
+      /////////////////////////////////////////////////////////////////
+
+      // Method 2 - setting variables to an array that is made with submit button
+      let firstName = e.target.elements['firstName'].value;
+      let lastName = e.target.elements['lastName'].value;
+      let birthDate = e.target.elements['birthDate'];
+      let city = e.target.elements['city'].value;
+      let email = e.target.elements['email'].value;
+
+      /////////////////////////////////////////////////////////////////
+
+      let errors = verifyFormData(firstName, lastName, birthDate, city, email);
+
+      if(errors.length > 0 ) {
+          hasErrors = true;
+
+          for (let i = 0; i < errors.length; i++) {
+              switch(errors[i]) {
+                  case firstName:
+                      shippingForm.firstName.classList.add("input-error");
+                      break;
+                  case lastName:
+                      shippingForm.lastName.classList.add('input-error');
+                      break;
+                  case birthDate:
+                      shippingForm.birthDate.classList.add('input-error');
+                      break;
+                  case city:
+                      shippingForm.city.classList.add('input-error');
+                      break;
+                  case email:
+                      shippingForm.email.classList.add('input-error');
+                      break;
+                  default:
+                      return;
+              }
+          }
+      }
+  });
 
 
-    // Method 1 - setting variabiles to object.
-
-    // let formData = new FormData(shippingForm)
-
-    // console.log(formData)
-
-    // let firstName = formData.get("firstName") //grabed from name attribute
-
-    // console.log(firstName)
-
-    // let lastName = formData.get('lastName')
-    // let date = formData.get('date')
-    // let city = formData.get('city')
-    // let zip = formData.get('zipCode')
-    // let email = formData.get('email')
-    // let agree = formData.get('agree')
-
-  /////////////////////////////////////////////////////////////////
-
-    // Method 2 - setting variables to an array that is made with submit button
-    let firstName = e.target.elements['firstName'].value
-    let lastName = e.target.elements['lastName'].value
-    let date = e.target.elements['date'].value
-    let city =  e.target.elements['city'].value
-    let zip = e.target.elements['zipCode'].value
-    let email = e.target.elements['email'].value
-
-
-    /////////////////////////////////////////////////////////////////
-
-    if (firstName.length < 10 ) {
-      console.log("Invalid First Name")
-    }
-    if (lastName.length < 10) {
-
-    }
-    if (zip === "" || isNaN(zip) || zip.length !== 5) {
-
-    }
-
-  })
 
 });
+
+function resetFormError(shippingForm) {
+  shippingForm.addEventListener('input', function(e) {
+      console.log("input detected");
+      e.target.classList.remove("input-error");
+  });
+}
+
+function verifyFormData(firstName, lastName, birthDate, city, email) {
+  let errors = [];
+  if (firstName.length > 10 ) {
+      errors.push(firstName);
+  }
+  if (lastName.length > 10) {
+      errors.push(lastName);
+  }
+  if (city.length > 10 ) {
+      errors.push(city);
+  }
+  if (birthDate === ''){
+      errors.push(birthDate);
+  }
+  return errors;
+}
