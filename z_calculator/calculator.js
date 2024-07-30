@@ -1,6 +1,7 @@
-let operator = '';
-let previousValue = '';
-let currentValue = '';
+let operator = ''
+let previousValue = ''
+let currentValue = ''
+let lastOperator = ''
 
 document.addEventListener('DOMContentLoaded', () => {
   const screen = document.querySelector('.screen');
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add event listeners to operator buttons
   operators.forEach((op) => op.addEventListener('click', function (e) {
     handleOperator(e.target.textContent);
-    screen.textContent = previousValue + ' ' + operator; // Do not show the operator on the screen
+    screen.textContent = previousValue + ' ' + operator; // Display previous value and operator on the screen
   }));
 
   // Add event listener to decimal button
@@ -48,8 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentValue !== '' && previousValue !== '') {
       calculate();
       screen.textContent = currentValue; // Display the result
-      previousValue = '';
-      operator = '';
+      previousValue = currentValue; // Reset previous value
+      currentValue = ''; // Reset current value to allow chaining
+      operator = ''; // Reset operator
     }
   });
 
@@ -69,10 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-
-
-
-
   // FUNCTIONS
 
   // Function to handle number input
@@ -82,14 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to handle operator input
   function handleOperator(op) {
-    if (currentValue === '') {
-      return; // If currentValue is empty, do nothing
+    if (currentValue === '' && previousValue === '') {
+      return; // If both currentValue and previousValue are empty, do nothing
+    }
+    if (currentValue === '' && previousValue !== '') {
+      operator = op; // If currentValue is empty but previousValue is not, just change the operator
+      screen.textContent = previousValue + ' ' + operator; // Display previous value and new operator
+      return;
     }
     if (previousValue !== '') {
       calculate(); // Perform any pending calculations
       screen.textContent = currentValue; // Display intermediate result
     }
-    operator = op; // Store the operator
+    operator = op; // Store the new operator
     previousValue = currentValue; // Move current value to previousValue
     currentValue = ''; // Reset currentValue
     screen.textContent = previousValue + ' ' + operator; // Display previous value and operator on the screen
@@ -122,8 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     currentValue = result.toString(); // Convert result to string
+    previousValue = ''; // Reset previous value
     operator = ''; // Reset operator
-    previousValue = ''; // Reset previousValue
-    screen.textContent = currentValue;
   }
 });
