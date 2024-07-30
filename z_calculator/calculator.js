@@ -60,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentValue !== '') {
       currentValue = (parseFloat(currentValue) * -1).toString(); // Flip the sign
       screen.textContent = currentValue; // Update screen with current value
+    } else if (previousValue !== '' && currentValue === '') {
+      previousValue = (parseFloat(previousValue) * -1).toString(); // Flip the sign of previous value if no current value
+      screen.textContent = previousValue; // Update screen with previous value
     }
   });
 
@@ -68,6 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentValue !== '') {
       currentValue = (parseFloat(currentValue) / 100).toString(); // Convert to percentage
       screen.textContent = currentValue; // Update screen with current value
+    } else if (previousValue !== '' && currentValue === '') {
+      previousValue = (parseFloat(previousValue) / 100).toString(); // Convert previous value to percentage if no current value
+      screen.textContent = previousValue; // Update screen with previous value
     }
   });
 
