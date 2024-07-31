@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Pad Thai",
+    "country_of_origin": "Thailand",
+    "spice_level": "Medium",
+    "ingredients": ["Rice noodles", "Shrimp", "Tofu", "Eggs", "Bean sprouts", "Peanuts"],
+    "cooking_method": "Stir-fried"
+  },
+  {
+    "name": "Ramen",
+    "country_of_origin": "Japan",
+    "spice_level": "Mild",
+    "ingredients": ["Wheat noodles", "Broth", "Pork", "Egg", "Nori", "Scallions"],
+    "cooking_method": "Boiled"
+  },
+  {
+    "name": "Spaghetti Carbonara",
+    "country_of_origin": "Italy",
+    "spice_level": "Mild",
+    "ingredients": ["Spaghetti", "Eggs", "Pancetta", "Parmesan cheese", "Black pepper"],
+    "cooking_method": "Boiled and Mixed"
+  },
+  {
+    "name": "Pho",
+    "country_of_origin": "Vietnam",
+    "spice_level": "Mild",
+    "ingredients": ["Rice noodles", "Beef", "Broth", "Basil", "Lime", "Bean sprouts"],
+    "cooking_method": "Boiled"
+  },
+  {
+    "name": "Jajangmyeon",
+    "country_of_origin": "South Korea",
+    "spice_level": "Mild",
+    "ingredients": ["Wheat noodles", "Black bean sauce", "Pork", "Vegetables"],
+    "cooking_method": "Boiled and Stir-fried"
+  },
+  {
+    "name": "Laksa",
+    "country_of_origin": "Malaysia",
+    "spice_level": "Spicy",
+    "ingredients": ["Rice noodles", "Coconut milk", "Shrimp", "Tofu puffs", "Fish cakes"],
+    "cooking_method": "Boiled"
+  },
+  {
+    "name": "Dan Dan Noodles",
+    "country_of_origin": "China",
+    "spice_level": "Spicy",
+    "ingredients": ["Wheat noodles", "Minced pork", "Sichuan peppercorns", "Chili oil", "Peanuts", "Scallions"],
+    "cooking_method": "Boiled and Stir-fried"
+  },
+  {
+    "name": "Mac and Cheese",
+    "country_of_origin": "USA",
+    "spice_level": "Mild",
+    "ingredients": ["Macaroni", "Cheddar cheese", "Milk", "Butter"],
+    "cooking_method": "Baked"
+  },
+  {
+    "name": "Mee Goreng",
+    "country_of_origin": "Indonesia",
+    "spice_level": "Spicy",
+    "ingredients": ["Egg noodles", "Shrimp", "Chicken", "Eggs", "Vegetables", "Soy sauce"],
+    "cooking_method": "Stir-fried"
+  },
+  {
+    "name": "Beef Noodle Soup",
+    "country_of_origin": "Taiwan",
+    "spice_level": "Medium",
+    "ingredients": ["Wheat noodles", "Beef", "Broth", "Bok choy", "Pickled mustard greens", "Scallions"],
+    "cooking_method": "Boiled"
+  }
+]

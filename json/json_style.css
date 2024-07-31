@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f8f8f8;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#search-bar {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+}
+
+.country-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.country {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#displayText {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #555;
+}
