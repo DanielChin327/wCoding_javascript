@@ -69,6 +69,8 @@
 
 
 // Elements from the DOM
+const file = '/json/countryAndCapitals.json'
+
 const countryList = document.getElementById('country-list');
 const displayText = document.getElementById('displayText');
 const searchBar = document.getElementById('search-bar');
@@ -76,6 +78,50 @@ const flipButton = document.getElementById('flipButton');
 
 let countriesData = [];
 let showCapitals = false; // Boolean to track whether we are showing capitals or countries
+
+// Fetch the country data from the JSON file
+fetch(file)
+  .then(response => response.json())
+  .then(data => {
+    countriesData = data;
+    // Initial display of all countries
+    displayItems(countriesData, showCapitals);
+
+    // Event listener for the search bar
+    searchBar.addEventListener('input', () => {
+      const searchQuery = searchBar.value.toLowerCase();
+      // Filter countries or capitals based on the search query
+      displayText.textContent = '';
+      let filteredItems;
+      if (showCapitals) {
+        filteredItems = countriesData.filter(item => item.city.toLowerCase().includes(searchQuery));
+      } else {
+        filteredItems = countriesData.filter(item => item.country.toLowerCase().includes(searchQuery));
+      }
+      // Display the filtered list of countries or capitals
+      displayItems(filteredItems, showCapitals);
+    });
+
+    // Event listener for the flip button
+    flipButton.addEventListener('click', () => {
+      showCapitals = !showCapitals;
+
+      if (showCapitals) {
+        flipButton.textContent = 'Flip to Countries';
+        searchBar.placeholder = 'Search for a capital...';
+      } else {
+        flipButton.textContent = 'Flip to Capitals';
+        searchBar.placeholder = 'Search for a country...';
+      }
+
+      displayItems(countriesData, showCapitals);
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching country data:', error);
+  });
+
+
 
 // Function to display the list of countries or capitals
 function displayItems(items, showCapitals) {
@@ -97,35 +143,3 @@ function displayItems(items, showCapitals) {
     countryList.appendChild(itemDiv);
   });
 }
-
-// Fetch the country data from the JSON file
-fetch('/json/countryAndCapitals.json')
-  .then(response => response.json())
-  .then(data => {
-    countriesData = data;
-    // Initial display of all countries
-    displayItems(countriesData, showCapitals);
-
-    // Event listener for the search bar
-    searchBar.addEventListener('input', () => {
-      const searchQuery = searchBar.value.toLowerCase();
-      // Filter countries or capitals based on the search query
-      displayText.textContent = '';
-      const filteredItems = countriesData.filter(item =>
-        showCapitals ? item.city.toLowerCase().includes(searchQuery) : item.country.toLowerCase().includes(searchQuery)
-      );
-      // Display the filtered list of countries or capitals
-      displayItems(filteredItems, showCapitals);
-    });
-
-    // Event listener for the flip button
-    flipButton.addEventListener('click', () => {
-      showCapitals = !showCapitals;
-      flipButton.textContent = showCapitals ? 'Flip to Countries' : 'Flip to Capitals';
-      displayItems(countriesData, showCapitals);
-      searchBar.placeholder = showCapitals ? 'Search for a capital...' : 'Search for a country...';
-    });
-  })
-  .catch(error => {
-    console.error('Error fetching country data:', error);
-  });
