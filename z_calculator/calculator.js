@@ -77,6 +77,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Backspace') {
+        // Your code to handle the Backspace key press
+        if (currentValue.length == 1) {
+          currentValue = 0
+          screen.textContent = 0
+        }
+        else if (currentValue !== 0 || currentValue != '') {
+          currentValue = currentValue.toString();
+          let currentValueArr = currentValue.split('')
+          currentValueArr.pop();
+          let result = currentValueArr.join('')
+          screen.textContent = parseInt(result)
+          currentValue = result;
+        }
+        else {
+          event.preventDefault(); // Prevent default action if no other condition is met
+        }
+    }
+});
+
   // FUNCTIONS
 
   // Function to handle number input
