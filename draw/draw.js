@@ -1,26 +1,20 @@
+let array =[0, 1];
 
 
-let arrayOne = []
-let message;
-document.addEventListener('DOMContentLoaded', function() {
-
-})
-
-function getMessage() {
-  while (message !== 'stop') {
-  message = prompt("What do you want to write?")
-  arrayOne.push(message)
-  }
-
+for (let i = 2; i < 20; i++) {
+  array.push(array[i] = array[i - 2] + array[i - 1])
+  console.log(array)
 }
 
-function storeArray(){
-  localStorage.setItem('message', JSON.stringify(arrayOne))
-  let stringed = localStorage.getItem('message')
-  console.log(stringed)
-  console.log(typeof(stringed))
+console.log(array)
+// What do you want the third number to be?
+// Take the number two numbers before (0)
+// Take the number one before (1)
 
-  let parsed = JSON.parse(stringed)
-  console.log(parsed)
-  console.log(Array.isArray(parsed))
-}
+// function fib (num) {
+//   let array = [0, 1];
+//   for (let i = 2; i < num; i++) {
+//     array.push(array[i] = array[i - 2] + array[i - 1])
+//   }
+//   return array;
+// }
