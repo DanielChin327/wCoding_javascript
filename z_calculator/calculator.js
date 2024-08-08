@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
           event.preventDefault(); // Prevent default action if no other condition is met
         }
     }
-});
+  });
 
   // FUNCTIONS
 
